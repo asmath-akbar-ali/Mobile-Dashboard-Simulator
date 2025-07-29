@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mobile UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+</head>
+
+<body>
+  <div class="mobile-frame">
+    <div class="notch"><div class="camera"></div></div>
+    <div class="screen" id="screen">
+      <span class="clock" id="clock">Loading...</span>
+      <span class="network">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reception-4" viewBox="0 0 16 16">
+          <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </span>
+      <span class="material-symbols-outlined">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-wifi" viewBox="0 0 16 16">
+          <path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.52.52 0 0 0 .668.05A11.45 11.45 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049"/>
+          <path d="M13.229 8.271a.482.482 0 0 0-.063-.745A9.46 9.46 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065m-2.183 2.183c.226-.226.185-.605-.1-.75A6.5 6.5 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.5 5.5 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091zM9.06 12.44c.196-.196.198-.52-.04-.66A2 2 0 0 0 8 11.5a2 2 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .707 0l.707-.707z"/>
+        </svg>
+      </span>
+      <span class="battery-status" id="batteryStatus">100%</span>
+
+      <div class="icons">
+        <!-- Widget 1: Batteries -->
+        <div class="widget1">
+          <div class="row">
+            <div class="battery-ring" data-percent="60">
+              <svg width="60" height="60"><circle class="bg" cx="30" cy="30" r="22" /><circle class="progress" cx="30" cy="30" r="22" /></svg>
+              <img src="images/icons8-smartphone-48.png" alt="Phone" />
+            </div>
+            <div class="battery-ring" data-percent="40">
+              <svg width="60" height="60"><circle class="bg" cx="30" cy="30" r="22" /><circle class="progress" cx="30" cy="30" r="22" /></svg>
+              <img src="images/icons8-earbud-headphones-48.png" alt="Earbuds" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="battery-ring" data-percent="60">
+              <svg width="60" height="60"><circle class="bg" cx="30" cy="30" r="22" /><circle class="progress" cx="30" cy="30" r="22" /></svg>
+              <img src="images/icons8-smart-watch-48.png" alt="Watch" />
+            </div>
+            <div class="battery-ring" data-percent="20">
+              <svg width="60" height="60"><circle class="bg" cx="30" cy="30" r="22" /><circle class="progress" cx="30" cy="30" r="22" /></svg>
+              <img src="images/icons8-headset-48.png" alt="Headset" />
+            </div>
+          </div>
+        </div>
+        <div class="widget1-name"><p>Batteries</p></div>
+
+        <!-- Widget 2 -->
+        <div class="widget2">
+          <img src="images/apple-music.png" alt="Music" onclick="openSpotify()" />
+          <img src="images/calculator.png" alt="Calculator" onclick="openCal()" />
+        </div>
+        <div class="widget2-name"><p>Music</p><p>Calculator</p></div>
+
+        <!-- Widget 3 -->
+        <div class="widget3">
+          <img src="images/clock.png" alt="Clock" onclick="openClock()" />
+          <img src="images/files.png" alt="Files" onclick="openPhoto()" />
+        </div>
+        <div class="widget3-name"><p>Clock</p><p>Files</p></div>
+
+        <!-- Widget 4 -->
+        <div class="widget4">
+          <img src="images/mail.png" alt="Mail" onclick="openMail()" />
+          <img src="images/settings.png" alt="Settings" onclick="openSetting()" />
+        </div>
+        <div class="widget4-name"><p>Mail</p><p>Setting</p></div>
+
+        <!-- Widget 5 -->
+        <div class="widget5">
+          <img src="images/notes.png" alt="Notes" onclick="openNote()" />
+          <img src="images/photos.png" alt="Photos" onclick="openPhoto()" />
+        </div>
+        <div class="widget5-name"><p>Notes</p><p>Photos</p></div>
+
+        <!-- Widget 6: Calendar -->
+        <div class="widget6">
+          <p class="p1" id="day">THU</p>
+          <p class="p2" id="date">14</p>
+        </div>
+        <div class="widget6-name"><p>Calendar</p></div>
+
+        <!-- Widget 7 -->
+        <div class="widget7">
+          <img src="images/widget7.png" alt="Stock" />
+        </div>
+        <div class="widget7-name"><p>Stock</p></div>
+
+        <!-- Widget 8 -->
+        <div class="widget8">
+          <img src="images/spotify.png" alt="Spotify" onclick="openSpotify()" />
+          <img src="images/google-map.png" alt="Map" onclick="openMap()" />
+        </div>
+        <div class="widget8-name"><p>Spotify</p><p>Google Map</p></div>
+
+        <!-- Widget 9 -->
+        <div class="widget9">
+          <img src="images/clock.png" alt="Clock" onclick="openClock()" />
+        </div>
+        <div class="widget9-name"><p>Clock</p></div>
+
+        <!-- Search -->
+        <div class="search">
+          <img src="images/search.png" alt="Search" />
+          <p>Search</p>
+        </div>
+      </div>
+
+      <!-- Dock -->
+      <div class="dock">
+        <img class="img1" src="images/icons8-camera-48.png" alt="Camera" onclick="openCamera()" />
+        <img class="img2" src="images/youtube.png" alt="YouTube" onclick="openyt()" />
+        <img class="img3" src="images/icons8-weather-100.png" alt="Weather" onclick="openWeather()" />
+        <img class="img4" src="images/jester.png" alt="Jokes" onclick="openJoke()" />
+      </div>
+    </div>
+
+    <!-- App Placeholder -->
+    <div class="app" style="display: none;"></div>
+  </div>
+
+  <!-- Menu Button -->
+  <div class="menu">
+    <img src="images/home.png" alt="Home" onclick="home()" />
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+</body>
+</html>
