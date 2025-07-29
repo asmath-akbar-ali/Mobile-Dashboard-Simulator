@@ -1,4 +1,4 @@
-# 📱 Mobile UI Homescreen Simulator
+# 📱 Mobile Dashboard Simulator
 
 ![Project Banner](images/Screenshot.png)
 
@@ -38,11 +38,11 @@ An interactive mobile UI simulation that replicates a smartphone home screen exp
 
 1.  Clone the repository:
     ```bash
-    git clone 
+    git clone https://github.com/asmath-akbar-ali/Mobile-Dashboard-Simulator.git 
     ```
 2.  Navigate to the project folder:
     ```bash
-    cd mobile-ui-homescreen
+    cd Mobile-Dashboard-Simulator
     ```
 3.  Open `index.html` in your browser.
 
@@ -82,11 +82,7 @@ mobile-ui-homescreen/
 ├── index.html
 ├── style.css
 ├── script.js
-├── images/
-│   ├── background.jpg
-│   ├── app-icons/
-│   ├── photos/
-│   └── widgets/
+├── images
 ```
 ---
 
